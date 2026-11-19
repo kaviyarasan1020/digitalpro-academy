@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalPro Academy - Admin Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6fb;
+            color: #222;
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            font-size: 22px;
+        }
+
+        button {
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .logout {
+            background: #ef4444;
+            color: white;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .summary {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px #00000010;
+        }
+
+        .summary h3 {
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .summary h1 {
+            color: #172554;
+            font-size: 35px;
+        }
+
+        .table-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+
+        .table-box h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        th, td {
+            padding: 13px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #172554;
+            color: white;
+        }
+
+        tr:hover {
+            background: #f1f5f9;
+        }
+
+        #message {
+            margin-bottom: 15px;
+            color: #dc2626;
+        }
+
+        .refresh {
+            background: #2563eb;
+            color: white;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>DigitalPro Academy - Admin</h2>
+        <button class="logout" onclick="logout()">Logout</button>
+    </header>
+
+    <div class="container">
+
+        <div class="summary">
+            <h3>Total Admissions</h3>
+            <h1 id="totalStudents">0</h1>
+        </div>
+
+        <div class="table-box">
+            <h2>Student Admission Details</h2>
+
+            <p id="message"></p>
+
+            <button class="refresh" onclick="loadStudents()">
+                Refresh Students
+            </button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Course</th>
+                        <th>Qualification</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+
+                <tbody id="studentTable">
+                    <tr>
+                        <td colspan="7">Loading students...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+        // Load students from backend
+        async function loadStudents() {
+            const table = document.getElementById("studentTable");
+            const message = document.getElementById("message");
+
+            message.textContent = "";
+            table.innerHTML = `
+                <tr><td colspan="7">Loading students...</td></tr>
+            `;
+
+            try {
+                const response = await fetch(
+                    "http://localhost:5000/api/students"
+                );
+
+                const data = await response.json();
+
+                if (!response.ok || !data.success) {
+                    throw new Error("Unable to load students");
+                }
+
+                document.getElementById("totalStudents").textContent =
+                    data.total;
+
+                if (data.students.length === 0) {
+                    table.innerHTML = `
+                        <tr>
+                            <td colspan="7">No admissions found</td>
+                        </tr>
+                    `;
+                    return;
+                }
+
+                table.innerHTML = "";
+
+                data.students.forEach((student, index) => {
+                    const row = document.createElement("tr");
+
+                    const values = [
+                        index + 1,
+                        student.studentName,
+                        student.email,
+                        student.mobile,
+                        student.course,
+                        student.qualification,
+                        student.createdAt
+                            ? new Date(student.createdAt).toLocaleDateString()
+                            : "-"
+                    ];
+
+                    values.forEach(value => {
+                        const cell = document.createElement("td");
+                        cell.textContent = value ?? "-";
+                        row.appendChild(cell);
+                    });
+
+                    table.appendChild(row);
+                });
+
+            } catch (error) {
+                table.innerHTML = "";
+                message.textContent =
+                    "Error loading students. Check backend server.";
+                console.log(error);
+            }
+        }
+
+        function logout() {
+            window.location.href = "admin-login.html";
+        }
+
+        loadStudents();
+    </script>
+
+</body>
+</html>
