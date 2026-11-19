@@ -1,0 +1,425 @@
+
+/* GENERAL SETTINGS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #ffffff;
+    color: #172554;
+}
+
+section {
+    scroll-margin-top: 80px;
+}
+
+
+/* NAVBAR */
+
+header {
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 8%;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #635bff;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #635bff;
+}
+
+.nav-btn {
+    background: #635bff;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+
+/* BUTTONS */
+
+.primary-btn {
+    background: #635bff;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    background: #453be0;
+    transform: translateY(-3px);
+}
+
+.secondary-btn {
+    border: 1px solid #635bff;
+    color: #635bff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+/* HERO SECTION */
+
+.hero {
+    min-height: 570px;
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    background: #f5f6ff;
+}
+
+.hero-content,
+.hero-image {
+    flex: 1;
+}
+
+.tagline {
+    color: #635bff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 5vw, 55px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #635bff;
+}
+
+.description {
+    color: #64748b;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 18px;
+    display: block;
+}
+
+
+/* ABOUT SECTION */
+
+.about {
+    padding: 85px 8%;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.about > p:last-child {
+    color: #64748b;
+    line-height: 1.8;
+    max-width: 650px;
+    margin: auto;
+}
+
+
+/* COURSES SECTION */
+
+.courses {
+    padding: 85px 8%;
+    text-align: center;
+    background: #fafaff;
+}
+
+.courses h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.section-description {
+    color: #64748b;
+    margin-bottom: 40px;
+}
+
+.course-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-top: 40px;
+}
+
+.course-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+}
+
+.course-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.course-content {
+    padding: 20px;
+}
+
+.course-category {
+    color: #635bff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.course-card h3 {
+    font-size: 18px;
+    margin: 12px 0;
+}
+
+.course-card p {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.course-card p b {
+    color: #172554;
+}
+
+.course-btn {
+    display: inline-block;
+    background: #635bff;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.course-btn:hover {
+    background: #453be0;
+}
+
+
+/* WHY CHOOSE US */
+
+.why-us {
+    padding: 85px 8%;
+    text-align: center;
+}
+
+.why-us h2 {
+    font-size: 32px;
+    margin-bottom: 35px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.feature-card {
+    background: #f5f6ff;
+    padding: 30px 15px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    background: #ebeaff;
+    transform: translateY(-5px);
+}
+
+.feature-card h3 {
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* CONTACT SECTION */
+
+.contact {
+    padding: 85px 8%;
+    text-align: center;
+    background: #f5f6ff;
+}
+
+.contact h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    color: #64748b;
+    line-height: 1.8;
+}
+
+.contact .primary-btn {
+    margin-top: 25px;
+}
+
+
+/* FOOTER */
+
+footer {
+    background: #172554;
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+.footer-content h2 {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.footer-content h2 span {
+    color: #817bff;
+}
+
+.footer-content p {
+    color: #cbd5e1;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.copyright {
+    border-top: 1px solid #334155;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+
+/* TABLET RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+    .course-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navbar {
+        padding: 20px 5%;
+    }
+
+}
+
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-links {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 55px 6%;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .course-container {
+        grid-template-columns: 1fr;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .about h2,
+    .courses h2,
+    .why-us h2,
+    .contact h2 {
+        font-size: 26px;
+    }
+
+}

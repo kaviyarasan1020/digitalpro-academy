@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Admission | DigitalPro Academy</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            background: #f5f6ff;
+        }
+
+        .admission-header {
+            text-align: center;
+            padding: 55px 20px 25px;
+        }
+
+        .admission-header h1 {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .admission-header p {
+            color: #64748b;
+        }
+
+        .admission-container {
+            max-width: 750px;
+            margin: 20px auto 70px;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+        }
+
+        .form-title {
+            font-size: 23px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #635bff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: none;
+            background: #635bff;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #453be0;
+        }
+
+        #success-message {
+            display: none;
+            background: #dcfce7;
+            color: #166534;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .back-link a {
+            color: #635bff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media(max-width: 600px) {
+            .admission-container {
+                margin: 20px 15px 50px;
+                padding: 25px 18px;
+            }
+
+            .admission-header h1 {
+                font-size: 27px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">
+            Digital<span>Pro</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#courses">Courses</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+
+        <a href="index.html" class="nav-btn">Back Home</a>
+
+    </nav>
+</header>
+
+
+<!-- PAGE TITLE -->
+
+<section class="admission-header">
+
+    <p class="tagline">JOIN DIGITALPRO ACADEMY</p>
+
+    <h1>Student Admission Form</h1>
+
+    <p>Take the first step towards your digital career.</p>
+
+</section>
+
+
+<!-- ADMISSION FORM -->
+
+<div class="admission-container">
+
+    <h2 class="form-title">Personal Information</h2>
+
+    <form id="admissionForm">
+
+        <div class="form-group">
+
+            <label>Full Name *</label>
+
+            <input
+                type="text"
+                name="studentName"
+                placeholder="Enter your full name"
+                required
+                minlength="3"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Email Address *</label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email address"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Mobile Number *</label>
+
+            <input
+                type="tel"
+                name="mobile"
+                placeholder="Enter 10 digit mobile number"
+                pattern="[6-9][0-9]{9}"
+                maxlength="10"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Select Course *</label>
+
+            <select name="course" required>
+
+                <option value="">Select Your Course</option>
+
+                <option value="Digital Marketing">
+                    Digital Marketing
+                </option>
+
+                <option value="SEO Training">
+                    SEO Training
+                </option>
+
+                <option value="Google Ads">
+                    Google Ads
+                </option>
+
+                <option value="Social Media Marketing">
+                    Social Media Marketing
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Qualification *</label>
+
+            <select name="qualification" required>
+
+                <option value="">Select Qualification</option>
+
+                <option value="10th">10th</option>
+
+                <option value="12th">12th</option>
+
+                <option value="Diploma">Diploma</option>
+
+                <option value="UG">Undergraduate</option>
+
+                <option value="PG">Postgraduate</option>
+
+                <option value="Other">Other</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Message (Optional)</label>
+
+            <textarea
+                name="message"
+                placeholder="Tell us about your learning goals..."
+            ></textarea>
+
+        </div>
+
+
+        <button type="submit" class="submit-btn">
+            Submit Application
+        </button>
+
+    </form>
+
+
+    <div id="success-message">
+
+        <h3>Application Submitted Successfully!</h3>
+
+        <p>Thank you for your interest in DigitalPro Academy.</p>
+
+    </div>
+
+
+    <div class="back-link">
+
+        <a href="index.html">← Back to Homepage</a>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h2>Digital<span>Pro</span> Academy</h2>
+
+        <p>Learn Digital Skills. Build Your Future.</p>
+
+        <p>© 2026 DigitalPro Academy. Student Project Website.</p>
+
+    </div>
+
+</footer>
+<script>
+const form = document.getElementById("admissionForm");
+
+form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    const formData = Object.fromEntries(
+        new FormData(form).entries()
+    );
+
+    try {
+        const response = await fetch(
+            "http://localhost:5000/api/admission",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok) {
+    console.log("Backend Error:", result);
+    alert(result.error || result.message || "Submission failed");
+    return;
+}
+
+        document.getElementById("success-message").style.display = "block";
+
+        form.reset();
+
+        document.getElementById("success-message").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    } catch (error) {
+        console.error(error);
+        alert("Server connection failed!");
+    }
+});
+</script>
+
+</body>
+</html>
