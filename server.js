@@ -11,8 +11,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname, { index: false }));
-app.get("/admin-login.html", (req, res) => {
-    res.sendFile(__dirname + "/admin-login.html");
+app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/index.html");
 });
 
 app.get("/admin.html", (req, res) => {
